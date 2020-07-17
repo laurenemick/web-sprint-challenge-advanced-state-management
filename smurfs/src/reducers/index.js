@@ -2,7 +2,7 @@ import {
     FETCH_SMURFS_START,
     FETCH_SMURFS_SUCCESS,
     FETCH_SMURFS_FAILURE,
-    ADD_FRIEND
+    ADD_NEW_SMURF,
   } from "../actions";
   
 const initialState = {
@@ -37,16 +37,21 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 error: action.payload
-            };
-        case ADD_FRIEND:
-            // console.log('add_friend', action);
-            const newFriend = {
-                name: action.payload,
-            };
-            return {
-                ...state,
-                smurfs: [...state.smurfs, newFriend]
-            };
+            }
+        case ADD_NEW_SMURF: {
+                return {
+                    ...state, 
+                    smurfs: [
+                        ...state.smurfs, 
+                        {
+                            name: action.payload,
+                            height: "5cm",
+                            age: 100,
+                            id: new Date()
+                        }
+                    ]
+                } 
+        }
         default:
             return state;
     }

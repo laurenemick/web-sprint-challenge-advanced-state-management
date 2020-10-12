@@ -21,7 +21,7 @@ const SmurfList = props => {
                         <div className="smurf" key={smurf.id}>
                             <h3>{smurf.name}</h3>
                             <p>Age: {smurf.age}</p>
-                            <p>Height: {smurf.height}</p>
+                            <p>Height: {smurf.height} cm</p>
                         </div>
                     ))}
                 </div>

@@ -7,14 +7,7 @@ import {
   
 const initialState = {
     isLoading: false,
-    smurfs: [
-        {
-            name: "Brainey",
-            age: 200,
-            height: "5cm",
-            id: 0
-        }
-    ],
+    smurfs: [{}],
     error: "",
 };
 
@@ -44,9 +37,9 @@ export const reducer = (state = initialState, action) => {
                     smurfs: [
                         ...state.smurfs, 
                         {
-                            name: action.payload,
-                            height: "5cm",
-                            age: 100,
+                            name: action.payload.name,
+                            height: action.payload.height,
+                            age: action.payload.age,
                             id: new Date()
                         }
                     ]

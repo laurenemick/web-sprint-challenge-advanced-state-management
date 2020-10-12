@@ -9,8 +9,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Smurf Village</h1>
-        <SmurfList />
-        <SmurfForm />
+        <div className="app_container">
+          <div className="left_section">
+            <SmurfList />
+          </div>
+          <div className="right_section">
+            <SmurfForm />
+          </div>
+        </div>
       </div>
     );
   }

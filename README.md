@@ -24,10 +24,27 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
-2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+
+2. In your own words, describe actions, reducers and the store and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+The store is the only one place that holds state and it's called 'single source of truth' because the only way to change data/UI is through actions and reducers. Actions give instructions to the reducer on what happened to state and the reducer updates the UI to reflect those changes. 
+
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
-4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Application state is immutable. When the application state changes, we clone the state object, modify the clone, and replace the original state with the new copy. We never mutate the original object, and we never write to our store object. 
+Component state is stored locally within a component and is not accessible from other components unless it's explicitly passed as props to it's sub components. 
+Application state is best used for managing large applications with deeply nested components, whereas component state is good for smaller projects.
+
+4. Describe redux-thunk, what does it allow us to do? How does it change our action-creators?
+
+Thunk is a middleware used to handle asynchronous operations inside our action creators and is used to call API's. It intercepts the normal Redux flow, and can make a call before actions make it to the reducer. 
+
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux because I want to work for one of the FAANG companies.
+
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
